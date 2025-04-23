@@ -1,16 +1,43 @@
-# "THIS IS THE WAY" OF PRIVACY: INTRODUCTION TO ZERO KNOWLEDGE PROOFS(ZKPs).
+# "THE WAY" OF PRIVACY: INTRODUCTION TO ZERO KNOWLEDGE PROOFS(ZKPs).
+This article explains the introductory concept of  zero-knowledge proofs (ZKPs), deep explaination on how ZKP works with an illustrative case study.
+Taliored for both technical and non technical ZK enthusism
+### Why Privacy??
 
-### WHY PRIVARY, WHY IS ZERO KNOWLEDGE IMPORTANT??
-imagine a world where you are 99.9% sure your can prove a statement is true without revealing the context(who, where, why and what the information is all about) of statement/information. 
+ I have the worst handwritten signature ever- It's everything else but scribbled and worse than a deterministic salt with no nonce or deadline to it, XD. Everytime i sign in the bank, I think: " imagine i have loads of money here and i'm using something so insecure to verify my identity. This centralised, non cryptographical encripted, controlled fiat bank got my back?, maybe not XD". Let's forget about my poor signature for a moment, But Have you ever wondered why we need to tell so much information just to verify a single fact or signature?
 
-To illustructive why privacy and zero knowledge is crucial, consider Alice applying for a of $50k bank loan. In traditional banking, alice must provide all her social security information and history to the bank company and other sensitive data. the problem?,These crucial users data are very eccential and meant to be protected, yet there have been numerous cases on records of client information sold out or breached, breaking trust between customer and institutions. [One Example](https://www.ftc.gov/news-events/news/press-releases/2021/12/capital-one-pay-190-million-settle-pending-class-action-suit-2019-data-breach). 
+What if there was a way I could prove "This is really Hamid(bad sig guy!)" without showing my signature at all? Or prove "I have enough money" without revealing my exact balance?
 
-Zero Knowlege Proofs system offers a solution. Using ZK technology She could mathematically demonstrate that her income exceeds the minimum threshold, and prove that her credit/Loan score is above the required level, and she has sufficient assets - all without revealing the exact numbers or providing access to her complete financial history.
+This is exactly what Zero Knowledge solves and allow us to do.
+### WHAT IS ZERO KNOWLEDGE PROOFS(ZKPs)? 
+Zero Knowledge proof(ZKPs) are cryptographical method or proofs to prove a specific data/information hold a true value without revealing any part of that data/information. It's like proving i own this bank account with giving out any form of information(including my bad signature) account.
 
-### WHAT IS ZERO KNOWLEDGE? 
-- zero knowledge proof(ZKPs) is  
-- properties and elements of zkps
-- actors in ZPS: prover and verifier
+For every ZKP action/Tasks, there must be an actor(s). in the case of ZK there are 2 actors/roles:
+- Prover(Hamid): The Prover actor is responsible for generating ZK proofs of a valid data without revealing the data itself.  They generate a proof based on this knowledge that the verifier can check. In a bank case study, This is Hamid(bank customer) claiming to know the signature to access his without actually revealing his signature.
+- Verifier(Cashier): The Verifier Actor is responsible for verifying a ZK proof od a data is truly valid, without gaining any information about the data itself. using a bank case study, this is the cashier validating ola(customers) claim/proof without learning anything about his signature. 
+
+For ZK to work properly, It needs 3 properties to always hold true value:
+- Completness: If the input sent by the prover is valid, the proof must always convince the verifier.
+- Soundness: If the input submitted by the prover is false, it must be pratically Impossible for the proof to trick the verifier.
+- Zero Knowledge: If the statement is true, then the verifier learns nothing else about the information apart from the fact that the statement is true
+
+# NON-INTERACTIVE AND INTERACTIVE Zero Knowledge Proofs(ZKPs)
+
+
+| Aspect                  | Interactive ZKPs(prover🔁verifier)           | Non-Interactive ZKPs(prover➡⬅verifier)   |
+|-------------------------|----------------------------------------------|--------------------------------------------|
+| Communication Pattern   | - Multiple rounds of communication           | - Single message containing proof          |
+| Verification Process    | - Verifier actively participates             | - Verifier can check proof independently   |
+| Prover-Verifier Dynamic | - Requires back-and-forth challenges         | - No further interaction needed            |
+| Blockchain Suitability  | - Not suitable for blockchain applications   | - Ideal for blockchain applications        |
+| Implementation Challenge| - Need for repeated interaction              | - Reduces need for communication           |
+| Verification Mechanism  | - Verifier must be present during proof      | - Anyone can verify proof at any time      |
+| Practical Application   | - Limited in distributed systems             | - Can be stored and verified later         |
+
+To further explain this, let's take a scenario of two Cases:
+- Interactive ZKPs(1st CASE): I(bank customer) needs to verify my identity to access my account, i have a multiple dialogue with the cashier, with No/zero data being revealed. This is an Interactive ZKPs
+- Non-Interactive ZKPs(2nd CASE): same case i need to verify my identity to access my account, i as a prover have a direct single verication dialogue with the cashier, with No/zero data being revealed. This is a Non-Interactive ZKPs.
+
+
 - types of ZKP systems 
   - STARKS 
   - SNARKS examples are 
@@ -33,4 +60,7 @@ Zero Knowlege Proofs system offers a solution. Using ZK technology She could mat
     - NOIR, ACIR
     - CIRCOM RICS
     - CAIRO ACIR
-  - 
+if you read to the end of this article, thank you very much. i must confess im not a writer, I'm only following feymann learning technique. Feel free to be my critics if there is any misinformation. if you are dev and find ZK development intresting, check out my NOIR series, THE WAY of Noir zero to hero. feel free to contribute and call out any issue.
+
+
+references- https://medium.com/@bhaskark2/understanding-zero-knowledge-proofs-part-1-verifiable-computation-with-zk-snarks-ba6cbb8e6001
